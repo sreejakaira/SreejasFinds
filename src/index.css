@@ -1,0 +1,315 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Base styles */
+:root {
+  --color-primary: #000000;
+  --color-white: #ffffff;
+  --color-gray-100: #f3f4f6;
+  --color-gray-200: #e5e7eb;
+  --color-gray-300: #d1d5db;
+  --color-gray-400: #9ca3af;
+  --color-gray-500: #6b7280;
+  --color-gray-600: #4b5563;
+  --color-gray-700: #374151;
+  --color-gray-800: #1f2937;
+  --color-gray-900: #111827;
+  --color-red-500: #ef4444;
+  --color-red-600: #dc2626;
+  
+  --spacing-1: 0.25rem;
+  --spacing-2: 0.5rem;
+  --spacing-3: 0.75rem;
+  --spacing-4: 1rem;
+  --spacing-6: 1.5rem;
+  --spacing-8: 2rem;
+  --spacing-12: 3rem;
+  --spacing-16: 4rem;
+  
+  --max-width: 80rem;
+  --transition: all 0.3s ease;
+}
+
+/* Reset and base styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: system-ui, -apple-system, sans-serif;
+  line-height: 1.5;
+  background-color: var(--color-white);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Layout */
+.container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 var(--spacing-6);
+}
+
+/* Header */
+.header {
+  @apply sticky top-0 z-50 bg-white border-b border-gray-100;
+}
+
+.header-content {
+  @apply flex items-center justify-between h-16;
+}
+
+.logo-container {
+  @apply flex items-center space-x-4;
+}
+
+.logo-text {
+  @apply text-xl font-bold;
+}
+
+.nav-list {
+  @apply hidden md:flex space-x-8;
+}
+
+.nav-link {
+  @apply text-gray-600 hover:text-gray-900 text-sm font-medium;
+}
+
+/* Icons and Badges */
+.icon-button {
+  @apply text-gray-600 hover:text-gray-900 transition-colors duration-200;
+}
+
+.badge {
+  @apply absolute -top-1 -right-1 w-4 h-4 flex items-center justify-center rounded-full text-xs text-white;
+}
+
+.badge-red {
+  @apply bg-red-500;
+}
+
+.badge-black {
+  @apply bg-black;
+}
+
+/* Main Content */
+.main-content {
+  @apply container mx-auto px-4 py-12;
+}
+
+.page-title {
+  @apply text-4xl font-bold text-center mb-4;
+}
+
+.page-description {
+  @apply text-gray-600 text-center max-w-2xl mx-auto mb-12;
+}
+
+/* Filter Controls */
+.filter-controls {
+  @apply flex items-center justify-between mb-8;
+}
+
+.filter-button {
+  @apply flex items-center space-x-2 text-sm font-medium text-gray-600 hover:text-gray-900;
+}
+
+.sort-select {
+  @apply appearance-none bg-transparent border-b border-gray-300 py-1 pr-8 text-sm font-medium focus:outline-none focus:border-gray-900;
+}
+
+/* Product Grid */
+.product-grid {
+  @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8;
+}
+
+/* Product Card */
+.product-image-container {
+  @apply relative aspect-square bg-gray-50 rounded-lg overflow-hidden mb-4;
+}
+
+.product-image {
+  @apply w-full h-full object-contain p-4 transition-transform duration-300 group-hover:scale-105;
+}
+
+.product-badges {
+  @apply absolute top-4 left-4 space-y-2;
+}
+
+.product-badge {
+  @apply bg-black text-white text-xs px-2 py-1 rounded;
+}
+
+.wishlist-button {
+  @apply absolute top-4 right-4 p-2 rounded-full bg-white text-gray-600 hover:scale-110 transition-transform duration-200;
+}
+
+.wishlist-button-active {
+  @apply bg-red-500 text-white;
+}
+
+.product-info {
+  @apply space-y-2;
+}
+
+.product-title {
+  @apply font-medium text-sm line-clamp-2;
+}
+
+.product-price-rating {
+  @apply flex items-center justify-between;
+}
+
+.product-price {
+  @apply font-medium;
+}
+
+.product-rating {
+  @apply text-sm text-gray-600;
+}
+
+.add-to-cart-button {
+  @apply w-full py-2 bg-black text-white transition-colors duration-200 hover:bg-gray-800 disabled:bg-gray-200 disabled:text-gray-400 disabled:cursor-not-allowed;
+}
+
+/* Cart Sidebar */
+.cart-overlay {
+  @apply fixed inset-0 bg-black bg-opacity-50 z-50;
+}
+
+.cart-sidebar {
+  @apply absolute right-0 top-0 h-full w-96 bg-white p-6 shadow-xl;
+}
+
+.cart-header {
+  @apply flex justify-between items-center mb-6;
+}
+
+.cart-title {
+  @apply text-xl font-semibold;
+}
+
+.cart-empty {
+  @apply text-center py-8;
+}
+
+.cart-empty-icon {
+  @apply w-12 h-12 mx-auto mb-4 text-gray-400;
+}
+
+.cart-items {
+  @apply space-y-4 mb-6;
+}
+
+.cart-item {
+  @apply flex gap-4 pb-4 border-b;
+}
+
+.cart-item-image {
+  @apply w-20 h-20 object-contain;
+}
+
+.cart-item-details {
+  @apply flex-1;
+}
+
+.cart-item-title {
+  @apply text-sm font-medium;
+}
+
+.cart-item-price {
+  @apply text-sm text-gray-600;
+}
+
+.cart-item-controls {
+  @apply flex items-center mt-2;
+}
+
+.quantity-button {
+  @apply px-2 py-1 border border-gray-300 hover:bg-gray-50 transition-colors duration-200;
+}
+
+.quantity-value {
+  @apply px-4;
+}
+
+.remove-button {
+  @apply ml-4 text-red-600 text-sm hover:text-red-700 transition-colors duration-200;
+}
+
+.cart-footer {
+  @apply border-t pt-4;
+}
+
+.cart-total {
+  @apply flex justify-between mb-4 font-medium;
+}
+
+.checkout-button {
+  @apply w-full bg-black text-white py-3 hover:bg-gray-800 transition-colors duration-200;
+}
+
+/* Filter Sidebar */
+.filter-sidebar {
+  @apply w-72 flex-shrink-0 border-r border-gray-200 pr-6;
+}
+
+.filter-category {
+  @apply mb-8 last:mb-0;
+}
+
+.filter-category-title {
+  @apply text-sm font-semibold uppercase text-gray-900 mb-4 tracking-wider;
+}
+
+.filter-options {
+  @apply space-y-3;
+}
+
+.filter-option {
+  @apply flex items-center gap-3 cursor-pointer select-none;
+}
+
+.filter-checkbox {
+  @apply w-5 h-5 border-2 border-gray-300 rounded flex items-center justify-center transition-all duration-200 flex-shrink-0 relative bg-white;
+}
+
+.filter-checkbox.checked {
+  @apply bg-gray-900 border-gray-900;
+}
+
+.filter-checkbox-icon {
+  @apply opacity-0 scale-90 transition-all duration-200 text-white;
+}
+
+.filter-checkbox.checked .filter-checkbox-icon {
+  @apply opacity-100 scale-100;
+}
+
+.filter-option-label {
+  @apply text-sm text-gray-700 transition-colors duration-200;
+}
+
+.filter-option:hover .filter-option-label {
+  @apply text-gray-900;
+}
+
+.filter-option:hover .filter-checkbox:not(.checked) {
+  @apply border-gray-400;
+}
+
+/* Responsive Utilities */
+@media (min-width: 768px) {
+  .nav-list {
+    @apply flex;
+  }
+}
+
+@media (min-width: 1024px) {
+  .product-grid {
+    @apply grid-cols-3;
+  }
+}
