@@ -26,7 +26,7 @@ An elegant, responsive E-commerce web application built with modern web technolo
 
 ```bash
 # 1. Clone the repo
-git clone https://github.com/your-username/sreejasfinds.git
+git clone https://github.com/sreejakaira/SreejasFinds.git
 
 # 2. Navigate to the project
 cd sreejasfinds
